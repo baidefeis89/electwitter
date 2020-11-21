@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently -n react,electron \"cross-env BROWSER=none npm run start:web\" \"wait-on http://localhost:3000 && electron ./src\"",
-    "start:web": "webpack serve",
     "build": "echo \"TODO: Implement Build script\" && exit 1",
-    "build:web": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier \"src/**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md|html)\" --write"
   },
