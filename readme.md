@@ -8,5 +8,6 @@
 ### NPM scripts (npm run --)
  - "start": Run electron app with react
  - "prettier": Format all files
+ - "test": Run all test
+ - "test:watch": Run all test and keep watching
  - "build": Not implemented yet
- - "test": Not implemented yet
