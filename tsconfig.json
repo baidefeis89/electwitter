@@ -1,0 +1,14 @@
+{ 
+    "compilerOptions": {
+      "target": "es5",
+      "outDir": "dist",
+      "allowSyntheticDefaultImports": true,
+      "jsx": "react",
+      "module": "commonjs",
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "removeComments": true,
+      "noImplicitAny": true,
+    },
+    "exclude": [ "node_modules" ] 
+  }

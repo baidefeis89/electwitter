@@ -1,0 +1,10 @@
+{
+  "COVER_IMG_LBL": "Cover image",
+  "ERROR_LBL": "An unexpected error has occurred",
+  "IMAGE_FROM_LBL": "Image from: ",
+  "INSERT_USERNAME_LBL": "Insert username",
+  "PROFILE_IMG_LBL": "Profile image",
+  "RETWEETED_LBL": "Retweeted",
+  "TWEETS_LBL": "Tweets",
+  "USER_NOT_FOUND_TXT": "The selected user doesn't exist, please try another."
+}

@@ -1,0 +1,44 @@
+{
+  "name": "axosoft-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -n react,electron \"cross-env BROWSER=none npm run start:web\" \"wait-on http://localhost:3000 && electron ./src\"",
+    "start:web": "webpack serve",
+    "build": "echo \"TODO: Implement Build script\" && exit 1",
+    "build:web": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier \"src/**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md|html)\" --write"
+  },
+  "author": "Ivan Galan",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "babel-loader": "^8.2.1",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "electron": "^11.0.1",
+    "electron-reloader": "^1.0.1",
+    "html-webpack-plugin": "^4.5.0",
+    "prettier": "^2.2.0",
+    "typescript": "^4.0.5",
+    "wait-on": "^5.2.0",
+    "webpack": "^5.5.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
+    "@material-ui/core": "^4.11.0",
+    "electron-is-dev": "^1.2.0",
+    "fontsource-roboto": "^3.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
