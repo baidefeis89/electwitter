@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently -n react,electron \"cross-env BROWSER=none npm run start:web\" \"wait-on http://localhost:3000 && electron ./src\"",
+    "start": "concurrently -n react,electron \"cross-env BROWSER=none webpack serve\" \"wait-on http://localhost:3000 && electron ./src\"",
     "build": "echo \"TODO: Implement Build script\" && exit 1",
     "test": "jest",
     "prettier": "prettier \"src/**/*.+(js|jsx|json|yml|yaml|css|scss|ts|tsx|md|html)\" --write"
