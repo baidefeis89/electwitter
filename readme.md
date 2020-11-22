@@ -9,4 +9,5 @@
  - "start": Run electron app with react
  - "prettier": Format all files
  - "test": Run all test
+ - "test:update-snapshots": Run all test updating the snapshots
  - "build": Not implemented yet
