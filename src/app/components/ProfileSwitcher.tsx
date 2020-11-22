@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 
 import styled from '@emotion/styled';
-import { TextField } from '@material-ui/core';
+import { Icon, InputAdornment, TextField } from '@material-ui/core';
 import { ipcRenderer } from './common/electron';
-import ILiterals from '../../i18n';
 
 const Input = styled(TextField)`
   width: 300px;
@@ -11,29 +10,52 @@ const Input = styled(TextField)`
 
 const SwitcherContainer = styled('div')`
   text-align: center;
-  margin-bottom: 10px;
+  margin: 20px 0;
 `;
 
-const onPressEnter = (value: string) => {
+const Link = styled('span')`
+  cursor: pointer;
+  text-decoration: underline;
+  color: ${({color}) => color};
+`;
+
+const loadProfile = (value: string) => {
   ipcRenderer.send('getUserData', value);
   ipcRenderer.send('getTimeline', value);
 }
 
-interface IProfileSwitcher {
-  literals: ILiterals
+interface ILinkToProfile {
+  profileName: string,
+  color?: string
 }
-const ProfileSwitcher = ({literals}: IProfileSwitcher) => {
+export const LinkToProfile = ({profileName, ...props}: ILinkToProfile) => {
+  return (
+    <Link {...props} onClick={() => loadProfile(profileName)}>{profileName} </Link>
+  )
+}
+
+const ProfileSwitcher = ({}) => {
   const [profile, setProfile] = useState('');
 
   const onKeyPress = (e: any) => {
     if(e.charCode==13) {
-      onPressEnter(profile);
+      loadProfile(profile);
     }
   }
 
   return (
     <SwitcherContainer>
-      <Input label={literals.INSERT_USERNAME_LBL} onKeyPress={onKeyPress} onChange={e => setProfile(e.target.value)} />
+      <Input
+        onKeyPress={onKeyPress}
+        onChange={e => setProfile(e.target.value)}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <Icon>search</Icon>
+            </InputAdornment>
+          ),
+        }}
+      />
     </SwitcherContainer>
   )
 }

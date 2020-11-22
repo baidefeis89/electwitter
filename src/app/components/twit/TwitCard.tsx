@@ -6,6 +6,8 @@ import ITwit from './types';
 import ILiterals from '../../../i18n';
 import RenderMedia from './RenderMedia';
 import TwitHeader from './TwitHeader';
+import { LinkToProfile } from '../ProfileSwitcher';
+import { normalizeText } from '../common/utils';
 
 const CustomCard: any = styled(Card)`
   max-width: 600px;
@@ -22,6 +24,25 @@ const TwitBody = ({children}: ITwitBody) => {
       {children}
     </div>
   )
+}
+
+const RenderTwitBodyText = ({twit}:{twit: ITwit}) => {
+  const text = (twit.retweeted_status ? twit.text.substring(twit.text.indexOf(':') + 1) : twit.text).split(' ');
+  const urls = twit.entities.urls.map(({url}) => url);
+
+  return (
+    <>
+      {text.map((word, i) => {
+        if (word.startsWith('http') && urls.includes(word)) {
+          return <a key={i} href={word} target="_blank">{word} </a>
+        } else if(word.startsWith('@')) {
+          return <LinkToProfile color='#0000EE' key={i} profileName={normalizeText(word)} />
+        } else {
+          return word + ' ';
+        }
+      })}
+    </>
+  );
 }
 
 interface ITwitCard {
@@ -45,7 +66,7 @@ const TwitCard = ({twit, literals}: ITwitCard) => {
       />
       <TwitBody>
         <p>
-          {twit.retweeted_status ? twit.text.substring(twit.text.indexOf(':') + 1) : twit.text}
+          {RenderTwitBodyText({twit})}
         </p>
         {twit.extended_entities && <RenderMedia media={twit.extended_entities.media} />}
         

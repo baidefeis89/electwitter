@@ -2,8 +2,19 @@ export default interface ITwit {
   retweeted_status: IRetweetedStatus,
   user: IUser,
   text: string,
+  entities: IEntities,
   extended_entities: IExtendedEntities,
   quoted_status?: ITwit
+}
+
+export interface IEntities {
+  urls: {
+    url: string,
+    expanded_url: string
+  }[],
+  user_mentions: {
+    screen_name: string
+  }[]
 }
 
 export interface IExtendedEntities {
@@ -13,7 +24,8 @@ export interface IExtendedEntities {
 export interface IMedia {
   type: string,
   video_info: IVideoInfo
-  url: string
+  url: string,
+  media_url: string
 }
 
 export interface IVideoInfo {

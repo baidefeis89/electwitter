@@ -18,7 +18,7 @@ const App = ({literals}: IApp) => {
   
   return (
     <>
-      <ProfileSwitcher literals={literals} />
+      <ProfileSwitcher />
       <Feed literals={literals} />
     </>
   )

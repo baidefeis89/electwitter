@@ -6,6 +6,7 @@ import { ProfileImgSmall } from '../common/profileImage';
 import { Icon } from '@material-ui/core';
 import VerifiedToken from './verified';
 import { Subtitle } from '../common/textComponents';
+import { LinkToProfile } from '../ProfileSwitcher';
 
 const TwitTitle = styled('span')`
   font-size: 20px;
@@ -51,7 +52,9 @@ const TwitHeader = ({literals, img, name, username, retwit, verified, rtInfo}: I
         <TwitTitle>
           {name}{verified && <VerifiedToken />}
         </TwitTitle>
-        <Subtitle>@{username}</Subtitle>
+        <Subtitle>
+          <LinkToProfile profileName={`@${username}`} />
+        </Subtitle>
         </TwitTitleContainer>
       </TwitHeaderContainer>
     </>
