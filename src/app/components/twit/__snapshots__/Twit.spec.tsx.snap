@@ -1,27 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Twit Card should render 1`] = `
-<div
-  class="css-1sg2lsz"
->
-  <img
-    class="css-15euz30"
-    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*"
-  />
-  <div
-    class="css-swff5h"
-  >
-    <span
-      class="css-1aylpg"
-    >
-      Real name
-    </span>
-    <span
-      class="css-15c2s3j"
-    >
-      @
-      User name
-    </span>
-  </div>
-</div>
+exports[`Render media should render image 1`] = `
+<img
+  src="http://imgurl.com"
+  width="500"
+/>
+`;
+
+exports[`Render media should render some videos 1`] = `
+<video
+  controls=""
+  src="http://videourl.com"
+  style="border-radius: 20px;"
+  width="95%"
+/>
+`;
+
+exports[`Render media should render video 1`] = `
+<video
+  controls=""
+  src="http://videourl.com"
+  style="border-radius: 20px;"
+  width="95%"
+/>
 `;

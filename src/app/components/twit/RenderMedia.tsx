@@ -19,7 +19,7 @@ const RenderByMediaType = ({mediaData}: IRenderByMediaType) => {
     case 'photo':
       return (
         <img
-          src={mediaData.url}
+          src={mediaData.media_url}
           width="500"
         />
       );
