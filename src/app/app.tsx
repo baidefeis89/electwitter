@@ -6,8 +6,8 @@ import ProfileSwitcher from './components/ProfileSwitcher';
 import Feed from './feed';
 
 const getData = () => {
-  ipcRenderer.send('getTimeline', 'estrumblesr');
-  ipcRenderer.send('getUserData', 'estrumblesr');
+  ipcRenderer.send('getTimeline', 'angelmartin_nc');
+  ipcRenderer.send('getUserData', 'angelmartin_nc');
 }
 
 interface IApp {
