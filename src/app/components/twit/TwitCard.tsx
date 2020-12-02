@@ -28,12 +28,14 @@ const TwitBody = ({children}: ITwitBody) => {
 
 const RenderTwitBodyText = ({twit}:{twit: ITwit}) => {
   const text = (twit.retweeted_status ? twit.text.substring(twit.text.indexOf(':') + 1) : twit.text).split(' ');
-  const urls = twit.entities.urls.map(({url}) => url);
+  const urls: {[x:string]: string} = twit.entities.urls
+    .map(({url}) => url)
+    .reduce((acum, curr) => ({...acum, [curr]:curr}), {});
 
   return (
     <>
       {text.map((word, i) => {
-        if (word.startsWith('http') && urls.includes(word)) {
+        if (urls[word]) {
           return <a key={i} href={word} target="_blank">{word} </a>
         } else if(word.startsWith('@')) {
           return <LinkToProfile color='#0000EE' key={i} profileName={normalizeText(word)} />
