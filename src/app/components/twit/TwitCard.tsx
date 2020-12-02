@@ -29,8 +29,7 @@ const TwitBody = ({children}: ITwitBody) => {
 const RenderTwitBodyText = ({twit}:{twit: ITwit}) => {
   const text = (twit.retweeted_status ? twit.text.substring(twit.text.indexOf(':') + 1) : twit.text).split(' ');
   const urls: {[x:string]: string} = twit.entities.urls
-    .map(({url}) => url)
-    .reduce((acum, curr) => ({...acum, [curr]:curr}), {});
+    .reduce((acum, {url}) => ({...acum, [url]:url}), {});
 
   return (
     <>
